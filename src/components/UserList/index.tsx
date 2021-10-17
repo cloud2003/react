@@ -1,6 +1,8 @@
 import * as React from 'react';
-import {TableBody, TableCol, TableHeader, TableRow, TableWrapper} from './styles';
-import {UserItemView} from '../UserItem'
+import {
+  TableBody, TableCol, TableHeader, TableRow, TableWrapper,
+} from './styles';
+import {UserItemView} from '../UserItem';
 import {UserItem} from '../../utils/types';
 
 interface IProps {
@@ -25,5 +27,5 @@ export class UsersListView extends React.Component<IProps> {
         </TableWrapper>
       </>
     );
-  };
+  }
 }

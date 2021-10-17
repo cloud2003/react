@@ -1,6 +1,6 @@
 import './App.css';
-import * as React from 'react';
-import {MainPageView} from "./page/MainPage";
+import React from 'react';
+import {MainPageView} from './page/MainPage';
 
 function App() {
   return (

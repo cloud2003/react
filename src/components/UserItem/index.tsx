@@ -13,11 +13,21 @@ interface IState {
 }
 
 export class UserItemView extends React.Component<IProps, IState> {
-  state = {
-    comment: '',
-    like: false,
-    likeImg: '\u2661',
-  };
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      comment: '',
+      like: false,
+      likeImg: '\u2661',
+    };
+    this.handleLike = this.handleLike.bind(this);
+    this.handleChangeComment = this.handleChangeComment.bind(this);
+  }
+  // state = {
+  //   comment: '',
+  //   like: false,
+  //   likeImg: '\u2661',
+  // };
 
   handleLike() {
     this.setState({

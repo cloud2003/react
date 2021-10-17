@@ -1,8 +1,8 @@
-export type ResponseType = {
-  results: Array<UsersListItem>,
-  info: UsersListInfo
+export type UsersResponseType = {
+  results: Array<UserItem>,
+  info: UsersResponseInfo
 }
-export interface UsersListItem {
+export interface UserItem {
   gender: string,
   name: {
     title: string,
@@ -58,7 +58,7 @@ export interface UsersListItem {
   },
   nat: string
 }
-export interface UsersListInfo {
+export interface UsersResponseInfo {
   seed: string,
   results: number,
   page: number,

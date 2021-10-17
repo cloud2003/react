@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {TableBody, TableCol, TableHeader, TableRow, TableWrapper} from './styles';
 import {UserItemView} from '../UserItem'
-import {UsersListItem} from '../../utils/types';
+import {UserItem} from '../../utils/types';
 
 interface IProps {
-  userData: Array<UsersListItem>
+  userData: Array<UserItem>
 }
 
 export class UsersListView extends React.Component<IProps> {

@@ -5,8 +5,8 @@ export class AxiosConstructor {
     return axios.create({
       responseType: 'json',
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
   }
 }

@@ -18,6 +18,7 @@ const short = keyframes`
 `;
 
 export const Line = styled.span<Props>`
+  width:100px;
   position: absolute;
   height: 4px;
   overflow: hidden;
@@ -33,9 +34,9 @@ export const Line = styled.span<Props>`
 
 export const Wrapper = styled.span`
   position: relative;
-  width: 100px};
+  width: 100px;
   height: 4px;
   overflow: hidden;
-  background-color: rgba(219, 112, 147, 0.2)};
+  background-color: rgba(219, 112, 147, 0.2);
   background-clip: padding-box;
 `;

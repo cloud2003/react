@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {MainBox, H1Box} from './styles';
 import {UsersListContainer} from '../../components/UsersListContainer';
-import Loader from '../../components/Loader';
 
 interface IProps {
 }
@@ -34,7 +33,6 @@ export class MainPageView extends React.Component<IProps, IState> {
       <>
         <MainBox>
           <H1Box>Записная книжка</H1Box>
-          <Loader />
           <input type="text" value={this.state.count} onChange={this.onChangeCount} />
           <UsersListContainer count={this.state.count} />
         </MainBox>

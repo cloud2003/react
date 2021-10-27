@@ -2,13 +2,15 @@ import * as React from 'react';
 import {UsersListView} from '../UserList';
 import {UserItem} from '../../utils/types';
 import users from '../../services/users.service';
+import Loader from '../Loader';
 
 interface IProps {
   count: number
 }
 
 interface IState {
-  persons: Array<UserItem>
+  persons: Array<UserItem>;
+  isLoading: boolean
 }
 
 export class UsersListContainer extends React.Component<IProps, IState> {
@@ -16,12 +18,19 @@ export class UsersListContainer extends React.Component<IProps, IState> {
     super(props);
     this.state = {
       persons: [],
+      isLoading: false,
     };
   }
 
   updateUsers(n: number) {
+    this.setState({
+      isLoading: true,
+    });
     users.load(n).then((data) => {
-      this.setState({persons: data.data.results});
+      this.setState({
+        persons: data.data.results,
+        isLoading: false,
+      });
     });
   }
 
@@ -37,6 +46,7 @@ export class UsersListContainer extends React.Component<IProps, IState> {
 
   render() {
     return (<>
+      {this.state.isLoading && <Loader />}
       <UsersListView userData={this.state.persons} />
     </>);
   }

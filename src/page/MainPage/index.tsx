@@ -1,40 +1,40 @@
 import * as React from 'react';
-import {AxiosResponse} from 'axios';
 import {MainBox, H1Box} from './styles';
-import {client} from '../../services/axios';
-import {UsersListView} from '../../components/UserList';
-import {UsersResponseType, UserItem} from '../../utils/types';
+import {UsersListContainer} from '../../components/UsersListContainer';
 
 interface IProps {
 }
 
 interface IState {
-  persons: Array<UserItem>
+  count: number
 }
 
 export class MainPageView extends React.Component<IProps, IState> {
-  state = {
-    persons: [],
-  }
-
-  async getUsers(): Promise<AxiosResponse<UsersResponseType>> {
-    return await client.get<UsersResponseType>('https://randomuser.me/api/?results=10');
-  }
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      count: 10,
+    };
+    this.onChangeCount = this.onChangeCount.bind(this);
+  };
 
   componentDidMount() {
-    this.getUsers()
-        .then((persons) => {
-          this.setState({persons: persons.data.results});
-        });
+    console.log('SECOND load'); // SECOND
   }
 
+  onChangeCount(event: React.ChangeEvent<HTMLInputElement>): void {
+    const value = event.target.value;
+    this.setState({count: +value});
+  };
+
   render() {
+    // TODO: добавить LOADER
     return (
       <>
         <MainBox>
           <H1Box>Записная книжка</H1Box>
-
-          <UsersListView userData={this.state.persons} />
+          <input type="text" value={this.state.count} onChange={this.onChangeCount} />
+          <UsersListContainer count={this.state.count} />
         </MainBox>
       </>
     );

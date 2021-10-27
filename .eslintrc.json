@@ -14,6 +14,8 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
+//    "react/jsx-uses-react": "error",
+//    "react/jsx-uses-vars": "error",
     "import/no-unresolved": 0,
     "import/extensions": 0,
     "react/jsx-filename-extension": [

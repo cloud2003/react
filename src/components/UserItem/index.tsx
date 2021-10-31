@@ -1,65 +1,44 @@
 import * as React from 'react';
 import {TableCol, TableRow} from './styles';
+import {useState} from 'react';
 
 interface IProps {
   firstName: string;
   lastName: string;
 }
 
-interface IState {
-  comment?: string;
-  like?: boolean;
-  likeImg?: string;
-}
+export const UserItemView: React.FC<IProps> = ({firstName, lastName}) => {
+  const [comment, setComment] = useState<string>('');
+  const [like, setLike] = useState<boolean>(false);
+  const [likeImg, setLikeImg] = useState<string>('\u2661');
 
-export class UserItemView extends React.Component<IProps, IState> {
-  constructor(props: IProps) {
-    super(props);
-    this.state = {
-      comment: '',
-      like: false,
-      likeImg: '\u2661',
-    };
-    this.handleLike = this.handleLike.bind(this);
-    this.handleChangeComment = this.handleChangeComment.bind(this);
-  }
-  // state = {
-  //   comment: '',
-  //   like: false,
-  //   likeImg: '\u2661',
-  // };
-
-  handleLike() {
-    this.setState({
-      like: !this.state.like,
-      likeImg: this.state.like ? '\u2661' : '\u2665',
-    });
+  const handleLike = () => {
+    setLike(!like);
+    setLikeImg(like ? '\u2661' : '\u2665');
   };
 
-  handleChangeComment(e: string) {
-    this.setState({comment: e});
+  const handleChangeComment = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setComment(event.target.value);
   };
 
-  render() {
-    return (
-      <TableRow>
-        <TableCol>
-          {this.props.firstName}
-          {' '}
-          {this.props.lastName}
-        </TableCol>
-        <TableCol onClick={this.handleLike} className="like">
-          {this.state.likeImg}
-        </TableCol>
-        <TableCol>
-          <input
-            type="text"
-            name="comment"
-            value={this.state.comment}
-            onChange={(event) => this.handleChangeComment(event.target.value)}
-          />
-        </TableCol>
-      </TableRow>
-    );
-  }
-}
+  return (
+    <TableRow>
+      <TableCol>
+        {firstName}
+        {' '}
+        {lastName}
+      </TableCol>
+      <TableCol onClick={handleLike} className="like">
+        {likeImg}
+      </TableCol>
+      <TableCol>
+        <input
+          type="text"
+          name="comment"
+          value={comment}
+          onChange={handleChangeComment}
+        />
+      </TableCol>
+    </TableRow>
+  );
+};

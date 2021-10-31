@@ -1,18 +1,13 @@
 import * as React from 'react';
 import {Line, Wrapper} from './styles';
 
+interface IProps {}
 
-class Loader extends React.Component {
-  render(): JSX.Element {
-    return (
-      <>
-        <Wrapper>
-          <Line long={true} />
-          <Line />
-        </Wrapper>
-      </>
-    );
-  }
-}
-
-export default Loader;
+export const Loader: React.FC<IProps> = () => {
+  return (<>
+    <Wrapper>
+      <Line long={true} />
+      <Line />
+    </Wrapper>
+  </>);
+};

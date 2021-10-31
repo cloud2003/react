@@ -12,7 +12,7 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "react-hooks"],
   "rules": {
 //    "react/jsx-uses-react": "error",
 //    "react/jsx-uses-vars": "error",
@@ -27,6 +27,8 @@
     "react/react-in-jsx-scope": 0,
     "import/prefer-default-export": 0,
     "require-jsdoc": 0,
-    "max-len": 0
+    "max-len": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

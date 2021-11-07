@@ -1,20 +1,18 @@
 import * as React from 'react';
 import {TableCol, TableRow} from './styles';
-import {useState} from 'react';
+import {UserItem} from '../../utils/types';
 
 interface IProps {
-  firstName: string;
-  lastName: string;
+  person: UserItem;
+  like: boolean;
+  onChangeLike: (email: string, flag: boolean) => void;
 }
 
-export const UserItemView: React.FC<IProps> = ({firstName, lastName}) => {
-  const [comment, setComment] = useState<string>('');
-  const [like, setLike] = useState<boolean>(false);
-  const [likeImg, setLikeImg] = useState<string>('\u2661');
+export const UserItemView: React.FC<IProps> = ({person, like, onChangeLike}) => {
+  const [comment, setComment] = React.useState<string>('');
 
   const handleLike = () => {
-    setLike(!like);
-    setLikeImg(like ? '\u2661' : '\u2665');
+    onChangeLike(person.email, !like);
   };
 
   const handleChangeComment = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,12 +22,12 @@ export const UserItemView: React.FC<IProps> = ({firstName, lastName}) => {
   return (
     <TableRow>
       <TableCol>
-        {firstName}
+        {person.name.first}
         {' '}
-        {lastName}
+        {person.name.last}
       </TableCol>
       <TableCol onClick={handleLike} className="like">
-        {likeImg}
+        {like ? '\u2665' : '\u2661'}
       </TableCol>
       <TableCol>
         <input

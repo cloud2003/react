@@ -22,9 +22,7 @@ export const UserItemView: React.FC<IProps> = ({person, like, onChangeLike}) => 
   return (
     <TableRow>
       <TableCol>
-        {person.name.first}
-        {' '}
-        {person.name.last}
+        {person.name}
       </TableCol>
       <TableCol onClick={handleLike} className="like">
         {like ? '\u2665' : '\u2661'}

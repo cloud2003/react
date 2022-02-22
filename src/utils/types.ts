@@ -1,3 +1,26 @@
+export interface UserItem {
+  address: {
+    street: string,
+    suite: string,
+    city: string,
+    zipcode: string,
+    geo: {
+      lat: string,
+      lng: string,
+    }
+  },
+  company: {
+    name: string,
+    catchPhrase: string,
+    bs: string,
+  },
+  email: string,
+  id: number,
+  name: string,
+  phone: string,
+  username: string,
+}
+/*
 export type UsersResponseType = {
   results: Array<UserItem>,
   info: UsersResponseInfo
@@ -58,6 +81,7 @@ export interface UserItem {
   },
   nat: string
 }
+*/
 export interface UsersResponseInfo {
   seed: string,
   results: number,

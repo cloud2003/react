@@ -32,7 +32,7 @@ export const UsersListView: React.FC<IProps> = ({userData}) => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          { userData.map((person, index) => <UserItemView person={person} key={person.id.name + index} onChangeLike={handleChangeLike} like={likes.includes(person.email)} />)}
+          { userData.map((person) => <UserItemView person={person} key={person.id} onChangeLike={handleChangeLike} like={likes.includes(person.email)} />)}
         </TableBody>
       </TableWrapper>
     </>

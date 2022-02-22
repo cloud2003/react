@@ -1,7 +1,6 @@
-import * as React from 'react';
+import React, {useCallback, useState} from 'react';
 import {MainBox, H1Box} from './styles';
 import {UsersListContainer} from '../../components/UsersListContainer';
-import {useState, useCallback} from 'react';
 
 interface IProps {
 }

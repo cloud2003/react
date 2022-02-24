@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Link} from 'react-router-dom';
 import {TableCol, TableRow} from './styles';
 import {UserItem} from '../../utils/types';
 
@@ -22,7 +23,9 @@ export const UserItemView: React.FC<IProps> = ({person, like, onChangeLike}) => 
   return (
     <TableRow>
       <TableCol>
-        {person.name}
+        <Link to={`/users/${person.id}`}>
+          {person.name}
+        </Link>
       </TableCol>
       <TableCol onClick={handleLike} className="like">
         {like ? '\u2665' : '\u2661'}

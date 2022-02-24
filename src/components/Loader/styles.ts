@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'styled-components';
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Props {
     long?: boolean,
     short?: boolean

@@ -1,25 +1,33 @@
+export interface CompanyType {
+  name: string,
+  catchPhrase: string,
+  bs: string,
+}
+
+export interface GeoType {
+  lat: string,
+  lng: string,
+}
+
+export interface AddressType {
+  street: string,
+  suite: string,
+  city: string,
+  zipcode: string,
+  geo: GeoType,
+}
+
 export interface UserItem {
-  address: {
-    street: string,
-    suite: string,
-    city: string,
-    zipcode: string,
-    geo: {
-      lat: string,
-      lng: string,
-    }
-  },
-  company: {
-    name: string,
-    catchPhrase: string,
-    bs: string,
-  },
+  address: AddressType,
+  company: CompanyType,
   email: string,
   id: number,
   name: string,
   phone: string,
   username: string,
+  website: string,
 }
+
 /*
 export type UsersResponseType = {
   results: Array<UserItem>,

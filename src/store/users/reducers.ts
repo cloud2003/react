@@ -3,6 +3,7 @@ import {UserAction, UserActionType, UserStateType} from './types';
 
 const initState: UserStateType = {
   isLoading: false,
+  isLoadingUserInfo: false,
   userList: [],
 };
 
@@ -23,6 +24,18 @@ export default (state = initState, action: UserActionType): UserStateType => {
       return {
         ...state,
         isLoading: false,
+      };
+    case UserAction.USER_INFO_INIT:
+      return {
+        ...state,
+        isLoadingUserInfo: true,
+        userInfo: undefined,
+      };
+    case UserAction.USER_INFO_SUCCESS:
+      return {
+        ...state,
+        userInfo: action.userInfo,
+        isLoadingUserInfo: false,
       };
     default:
       return state;
